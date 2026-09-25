@@ -1,2 +1,3 @@
 # Executables
+/(system_ext|system/system_ext)/bin/bootsplash		u:object_r:bootsplash_exec:s0
 /(system_ext|system/system_ext)/bin/fbkeyboard		u:object_r:fbkeyboard_exec:s0

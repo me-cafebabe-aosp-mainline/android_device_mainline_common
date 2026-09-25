@@ -1,0 +1,2 @@
+type sysfs_bootsplash_bgrt, fs_type, sysfs_type;
+type sysfs_bootsplash_vtconsole, fs_type, sysfs_type;

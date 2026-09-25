@@ -1,0 +1,2 @@
+genfscon sysfs /devices/virtual/vtconsole	u:object_r:sysfs_bootsplash_vtconsole:s0
+genfscon sysfs /firmware/acpi/bgrt		u:object_r:sysfs_bootsplash_bgrt:s0

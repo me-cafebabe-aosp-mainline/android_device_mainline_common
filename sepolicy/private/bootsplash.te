@@ -1,0 +1,23 @@
+type bootsplash, domain, coredomain;
+type bootsplash_exec, exec_type, system_file_type, file_type;
+
+init_daemon_domain(bootsplash)
+
+allow bootsplash device:dir r_dir_perms;
+allow bootsplash gpu_device:chr_file { getattr open read write ioctl map };
+allow bootsplash gpu_device:dir r_dir_perms;
+allow bootsplash graphics_device:chr_file { getattr open read write ioctl map };
+allow bootsplash graphics_device:dir r_dir_perms;
+allow bootsplash sysfs_bootsplash_bgrt:dir r_dir_perms;
+allow bootsplash sysfs_bootsplash_bgrt:file r_file_perms;
+allow bootsplash sysfs_bootsplash_vtconsole:dir r_dir_perms;
+allow bootsplash sysfs_bootsplash_vtconsole:file r_file_perms;
+
+allowxperm bootsplash graphics_device:chr_file ioctl {
+    FBIOGET_FSCREENINFO
+    FBIOGET_VSCREENINFO
+};
+
+get_prop(bootsplash, bootsplash_prop)
+set_prop(init, bootsplash_prop)
+set_prop(vendor_init, bootsplash_prop)

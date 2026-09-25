@@ -86,6 +86,13 @@
 | true | Default value, use the example configuration |
 | false | The target will have to provide `/vendor/etc/external_camera_config.xml` |
 
+## Display
+
+### TARGET_ENABLE_BOOTSPLASH
+| Value | Directory | Description |
+|-------|-----------|-------------|
+| true | bootsplash | Install the optional early DRM/fbdev bootsplash in system_ext. Do not enable together with fbkeyboard. The device supplies `/product/etc/bootsplash.bmp` if a static fallback is wanted. |
+
 ## Graphics
 
 ### TARGET_GRAPHICS

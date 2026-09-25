@@ -91,7 +91,7 @@
 ### TARGET_ENABLE_BOOTSPLASH
 | Value | Directory | Description |
 |-------|-----------|-------------|
-| true | bootsplash | Install the optional early DRM/fbdev bootsplash in system_ext. Do not enable together with fbkeyboard. The device supplies `/product/etc/bootsplash.bmp` if a static fallback is wanted. |
+| true | bootsplash | Install the optional early DRM/fbdev bootsplash in system_ext. If fbkeyboard is installed, request its stop before starting the splash. The device supplies `/product/etc/bootsplash.bmp` if a static fallback is wanted. |
 
 ## Graphics
 

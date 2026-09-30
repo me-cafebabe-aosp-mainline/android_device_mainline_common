@@ -1,4 +1,5 @@
 vendor_internal_prop(vendor_audio_prop)
+vendor_internal_prop(vendor_camera_prop)
 vendor_internal_prop(vendor_dlkm_prop)
 vendor_internal_prop(vendor_sensors_iio_prop)
 vendor_internal_prop(vendor_tablet2multitouch_prop)

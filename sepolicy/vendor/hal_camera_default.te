@@ -1,0 +1,7 @@
+# hardware/mainline/common/interfaces/camera/mainline
+
+# vendor.camera.* configuration
+get_prop(hal_camera_default, vendor_camera_prop)
+
+# Camera hotplug: list and watch /dev for video nodes
+allow hal_camera_default device:dir { r_dir_perms watch };

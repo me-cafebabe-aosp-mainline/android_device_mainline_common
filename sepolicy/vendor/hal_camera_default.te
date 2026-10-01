@@ -5,3 +5,8 @@ get_prop(hal_camera_default, vendor_camera_prop)
 
 # Camera hotplug: list and watch /dev for video nodes
 allow hal_camera_default device:dir { r_dir_perms watch };
+
+# Flash LEDs: list the LED class, drive the LEDs labelled as camera flash
+allow hal_camera_default vendor_sysfs_camera_flash:dir search;
+allow hal_camera_default vendor_sysfs_camera_flash:file rw_file_perms;
+r_dir_file(hal_camera_default, sysfs_leds)

@@ -17,6 +17,10 @@ import /vendor/etc/ueventd.${ro.hardware}.rc
 # ION
 /dev/ion	0664	system	system
 
+# LEDs (Camera Flash)
+/sys/class/leds/*:flash*	brightness	0664	system	camera
+/sys/class/leds/*:torch*	brightness	0664	system	camera
+
 # Media
 /dev/media*		0660	media	camera
 /dev/v4l-subdev*	0660	media	camera

@@ -30,6 +30,9 @@
 # HDMI CEC
 /dev/cec[0-9]+		u:object_r:cec_device:s0
 
+# LEDs
+/sys/devices/.*/leds/[^/]*:(flash|torch)[^/]*(/.*)?	u:object_r:vendor_sysfs_camera_flash:s0
+
 # Rfkill
 /dev/rfkill		u:object_r:rfkill_device:s0
 

@@ -1,6 +1,7 @@
 type proc_gpu, fs_type, proc_type;
 
 type vendor_sysfs_backlight, fs_type, sysfs_type;
+type vendor_sysfs_camera_flash, fs_type, sysfs_type;
 type vendor_sysfs_dmi_id, fs_type, sysfs_type;
 type vendor_sysfs_dt_model, fs_type, sysfs_type;
 type vendor_sysfs_iio, fs_type, sysfs_type;

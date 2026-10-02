@@ -31,6 +31,7 @@ checklists. If a page grows past a screen or two, it should be split.
 | [DEVICE_README_TEMPLATE.md](DEVICE_README_TEMPLATE.md) | Write the README of your device tree |
 | [AGENTS_FOR_BRINGUP.md](AGENTS_FOR_BRINGUP.md) | Let an AI agent help (rules apply) |
 | [CONTRIBUTING.md](CONTRIBUTING.md) | Send your work upstream |
+| [DEVELOPING.md](DEVELOPING.md) | Work on the common repos themselves |
 
 ## Related docs
 

@@ -3,6 +3,8 @@
 **TL;DR:** Small commits, one stage or one topic each. Standards live
 in `hardware/mainline/common/docs/`.
 
+See also [DEVELOPING.md](DEVELOPING.md) for branches, review and checks.
+
 ## Read first
 
 | Doc | For |

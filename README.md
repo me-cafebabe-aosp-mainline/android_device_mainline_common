@@ -22,6 +22,10 @@ device tree if present. It is external and is not dependency by default.
 
 The origin of this device tree is [here](https://github.com/me-cafebabe-aosp-mainline).
 
+## Documentation
+
+Bringing up your own device? Start with [docs/README.md](docs/README.md).
+
 ## Structure
 
 ```
@@ -32,6 +36,7 @@ The origin of this device tree is [here](https://github.com/me-cafebabe-aosp-mai
 ├── BoardConfigMainlineCommon.mk # Board configuration makefile
 ├── build # Build rules
 ├── components
+├── docs # Bringup guide for device tree authors
 ├── init # Files used by Android init program
 │   ├── Android.bp
 │   ├── init.mainline.rc

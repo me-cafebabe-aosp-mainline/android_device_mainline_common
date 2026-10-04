@@ -50,7 +50,7 @@ Not kernel, but needed with new kernels.
 |------|-------|-------|
 | `packages/modules/Connectivity` | `jniClatCoordinator: Do not crash on BPF SELinux context mismatch` | Boot on v7.2+ kernels |
 
-Gerrit: `https://review.lineageos.org/c/LineageOS/android_packages_modules_Connectivity/+/494663`
+Patch: `https://review.lineageos.org/c/LineageOS/android_packages_modules_Connectivity/+/494663`
 
 ## Older kernels (v6.1)
 

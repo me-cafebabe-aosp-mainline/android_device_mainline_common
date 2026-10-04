@@ -92,7 +92,7 @@ path, for devices that only have a framebuffer.
 | USB gadget | `TARGET_USB_GADGET_HAL` | `mainline` | |
 | Vibrator | `TARGET_VIBRATOR_HAL` | `mainline` | No vibrator: `TARGET_HAS_VIBRATOR := false` |
 | Light | `TARGET_LIGHT_HAL` | `lineage` | |
-| Camera | `TARGET_CAMERA_PROVIDER_HAL` | `mainline` with `common-ext`, otherwise not set | Prefer `mainline`. `libcamera` only if the target explicitly needs something only libcamera supports. `emulated` to test |
+| Camera | `TARGET_CAMERA_PROVIDER_HAL` | not set | Set `mainline` (it handles external cameras itself, so do not combine it with `TARGET_EXTERNAL_CAMERA_PROVIDER_HAL`). `libcamera` only if the target explicitly needs something only libcamera supports. `emulated` to test |
 | Media | `TARGET_MEDIA_C2_HAL` | not set: AOSP software codecs are used | `ffmpeg` is software only for now (may get hardware codecs later) and builds for ARM64 only |
 | Wi-Fi | `TARGET_HOSTAPD_AND_WPA_SUPPLICANT_FORM` | `apex-aosp` | |
 
@@ -129,7 +129,7 @@ directory unless noted.
 | Allocator, Mesa GBM | `graphics/allocator/gbm_mesa/README.md` |
 | Allocator, framebuffer | `graphics/allocator/fb/README.md` |
 | Vibrator | `vibrator/mainline/README.md` |
-| Camera | `camera/mainline/INITIAL_IMPLEMENTATION.md`; the README is in `hardware/mainline/common-ext` |
+| Camera | `camera/mainline/README.md` |
 
 Tools and libraries next to them, in `hardware/mainline/common/`:
 
@@ -143,12 +143,10 @@ Tools and libraries next to them, in `hardware/mainline/common/`:
 USB gadget has no README yet; see its directory under `usb/gadget/`.
 SoC vendor HAL READMEs are listed in that vendor tree's docs.
 
-## Using the `-ext` modules
+## Your own extras
 
-Set `MAINLINE_COMMON_PREFER_EXT_MODULES := true` to swap some modules
-for the ones in `device/mainline/common-ext` (they get an `_ext`
-value, e.g. `mainline_ext`). Without that repository the build warns
-and keeps the common modules.
+A tree of your own, `device/mainline/common-ext`, can add modules or
+replace common ones. See [EXTENSIONS.md](EXTENSIONS.md).
 
 ## SoC vendor options
 

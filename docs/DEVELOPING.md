@@ -1,7 +1,8 @@
 # Developing the common repos
 
 **TL;DR:** Work on `lineage-24.0`, one topic per commit. The human
-builds and tests. Changes go through LineageOS Gerrit review.
+builds and tests. Changes are sent to the repositories on GitHub
+(`github.com/me-cafebabe-aosp-mainline`) and reviewed there.
 
 For bringing up a *device*, see [BRINGUP_OVERVIEW.md](BRINGUP_OVERVIEW.md).
 This page is for changing the shared repos themselves.
@@ -17,7 +18,7 @@ This page is for changing the shared repos themselves.
 | `vendor/mainline` | Components that need `//vendor:__subpackages__` visibility |
 | `kernel/mainline/configs` | Kernel config fragments |
 | `device/mainline/generic` | `generic_init` based tree |
-| `-ext` repos | Maintained under their own rules, see [CONTRIBUTING.md](CONTRIBUTING.md) |
+| `-ext` trees | Your own extras. Not in the manifests; see [EXTENSIONS.md](EXTENSIONS.md) |
 
 The tree must keep working in pristine AOSP, not only LineageOS.
 
@@ -58,7 +59,7 @@ before you backport.
 ```
 read docs -> edit -> format -> commit -> human builds and tests
                                            |
-         merge <- votes <- Gerrit review <- push
+         merge <- approval <- review <- push / pull request
 ```
 
 | Step | Do |
@@ -70,27 +71,25 @@ read docs -> edit -> format -> commit -> human builds and tests
 | Commit | One logical change, subject and trailers per `COMMIT_CONVENTIONS.md` |
 | Self review | Go through `REVIEW.md` against your own diff |
 | Test | The human builds and runs it on hardware. Agents must not |
-| Push | To Gerrit: `git push <gerrit-remote> HEAD:refs/for/lineage-24.0` |
-| Review | Reviewers vote `Code-Review` and `Verified` |
-| Merge | Only with maximum votes |
-
-The `commit-msg` hook adds `Change-Id`. Do not write it yourself.
+| Push | To your own branch or fork on GitHub: `git push <remote> <branch>` |
+| Review | Open a pull request. A maintainer reviews it against `REVIEW.md` |
+| Merge | When the review is clean and the change is tested |
 
 ## Checks that run for you
 
 | Where | What |
 |-------|------|
-| Gerrit CI (`device/mainline/common`) | `build/tools/check_sepolicy.py` and its unit tests |
-| Reviewers | `REVIEW.md` seven checks; `vendor/mainline/docs/review.md` vote cheatsheet |
+| You | `build/tools/check_sepolicy.py` on sepolicy changes (its unit tests are next to it) |
+| Reviewers | `REVIEW.md` seven checks; `vendor/mainline/docs/review.md` severity cheatsheet |
 
-CI does not build a device image. A passing CI is not a tested change.
+Nothing builds a device image for you. A clean check is not a tested change.
 
-## What reviewers vote down
+## What reviewers send back
 
-| Vote | Typical reason |
-|------|----------------|
-| `-1` | Style differs from nearby code, unclear or long commit message (over 38 lines), unrelated diff noise |
-| `-2` | Breaks other devices with no workaround, several independent changes in one commit, missing `Assisted-by` trailer on AI work, bad core idea |
+| Severity | Typical reason |
+|----------|----------------|
+| Fix it (minor) | Style differs from nearby code, unclear or long commit message (over 38 lines), unrelated diff noise |
+| Do not merge (major) | Breaks other devices with no workaround, several independent changes in one commit, missing `Assisted-by` trailer on AI work, bad core idea |
 
 Reviewers care first about their own use cases and get annoyed by
 walls of text. Keep both the diff and the message small.

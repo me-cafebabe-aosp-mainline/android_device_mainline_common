@@ -32,6 +32,7 @@ checklists. If a page grows past a screen or two, it should be split.
 | [AGENTS_FOR_BRINGUP.md](AGENTS_FOR_BRINGUP.md) | Let an AI agent help (rules apply) |
 | [CONTRIBUTING.md](CONTRIBUTING.md) | Send your work upstream |
 | [DEVELOPING.md](DEVELOPING.md) | Work on the common repos themselves |
+| [EXTENSIONS.md](EXTENSIONS.md) | Add your own extras with an `-ext` tree |
 
 ## Related docs
 

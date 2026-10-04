@@ -54,12 +54,12 @@ Assisted-by: <Agent>:<Model ID>
 | Device specific | Your device tree |
 | Applies to many devices | `device/mainline/common` or the `<vendor>-common` tree |
 | New HAL or HAL fix | `hardware/mainline/common` |
-| Needs a private rule | An `-ext` repo (see below) |
+| Only you need it | Your own `-ext` tree ([EXTENSIONS.md](EXTENSIONS.md)) |
 
-## The `-ext` repos
+## The `-ext` trees
 
-Repos with an `-ext` suffix (`device/mainline/common-ext`,
-`hardware/mainline/common-ext`, and `<vendor>-common-ext`) are maintained by
-the same author with their own rules. The common trees include them
-when present and work without them. Do not make the common trees
-depend on them.
+The common trees include `device/mainline/common-ext` and
+`<vendor>-common-ext` when they exist. They are for **your own**
+extras, are not part of these repositories, and the common trees must
+keep working without them. Do not make the common trees depend on them;
+see [EXTENSIONS.md](EXTENSIONS.md).

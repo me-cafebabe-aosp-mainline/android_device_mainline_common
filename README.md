@@ -18,7 +18,9 @@ for being used within pristine AOSP source tree,
 regardless of where this device tree is currently hosted at.
 
 This device tree automatically includes `device/mainline/common-ext`
-device tree if present. It is external and is not dependency by default.
+device tree if present. It is the place for your own extras: no such
+repository is provided here, and this device tree never depends on it.
+See [docs/EXTENSIONS.md](docs/EXTENSIONS.md).
 
 The origin of this device tree is [here](https://github.com/me-cafebabe-aosp-mainline).
 

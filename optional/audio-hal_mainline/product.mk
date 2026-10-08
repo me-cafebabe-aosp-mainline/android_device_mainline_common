@@ -6,6 +6,7 @@
 ifeq ($(TARGET_AUDIO_HAL),mainline)
 
 PRODUCT_PACKAGES += \
+    MainlineAudioRouting \
     com.android.hardware.audio.mainline \
     framework_compatibility_matrix.mainline.audio.xml
 

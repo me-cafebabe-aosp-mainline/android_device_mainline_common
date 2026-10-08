@@ -6,6 +6,9 @@
 /dev/media[0-9]+	u:object_r:video_device:s0
 /dev/v4l-subdev[0-9]+	u:object_r:video_device:s0
 
+# Data
+/data/vendor/mainline_audio(/.*)?	u:object_r:mainline_audio_data_file:s0
+
 # Executables
 /(vendor|system/vendor)/bin/hw/android\.hardware\.audio\.effect\.service-aidl\.legacy			u:object_r:hal_audio_default_exec:s0
 /(vendor|system/vendor)/bin/hw/android\.hardware\.composer\.hwc3-service\.drm(_upstream)?		u:object_r:hal_graphics_composer_default_exec:s0

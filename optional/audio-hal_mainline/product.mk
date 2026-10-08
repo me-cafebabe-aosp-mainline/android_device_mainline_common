@@ -6,7 +6,8 @@
 ifeq ($(TARGET_AUDIO_HAL),mainline)
 
 PRODUCT_PACKAGES += \
-    com.android.hardware.audio.mainline
+    com.android.hardware.audio.mainline \
+    framework_compatibility_matrix.mainline.audio.xml
 
 TARGET_AUDIO_MAINLINE_UCM_PROFILES ?= all
 ifeq ($(TARGET_AUDIO_MAINLINE_UCM_PROFILES),all)

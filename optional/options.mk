@@ -67,9 +67,7 @@ endif
 TARGET_BLUETOOTH_HAL ?= default-aidl
 
 # Camera
-ifeq ($(TARGET_SUPPORTS_EXTERNAL_CAMERAS),true)
-TARGET_EXTERNAL_CAMERA_PROVIDER_HAL ?= default-aidl
-endif
+TARGET_CAMERA_PROVIDER_HAL ?= mainline
 
 # Graphics
 TARGET_GRAPHICS ?= mesa

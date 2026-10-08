@@ -1,0 +1,16 @@
+#
+# SPDX-FileCopyrightText: The LineageOS Project
+# SPDX-License-Identifier: Apache-2.0
+#
+
+# Settings app of the mainline sensors HAL's virtual backend
+# (vendor.mainline.sensors.settings), an APK in the HAL's vendor APEX.
+type mainline_sensors_settings_app, domain;
+app_domain(mainline_sensors_settings_app)
+
+# Framework services every app uses.
+allow mainline_sensors_settings_app app_api_service:service_manager find;
+
+# IVirtualSensors of the sensors HAL.
+allow mainline_sensors_settings_app hal_mainline_sensors_virtual_service:service_manager find;
+binder_call(mainline_sensors_settings_app, hal_sensors_default)

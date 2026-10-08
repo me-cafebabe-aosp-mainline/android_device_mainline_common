@@ -8,6 +8,7 @@
 
 # Data
 /data/vendor/mainline_audio(/.*)?	u:object_r:mainline_audio_data_file:s0
+/data/vendor/mainline_sensors(/.*)?	u:object_r:mainline_sensors_data_file:s0
 
 # Executables
 /(vendor|system/vendor)/bin/hw/android\.hardware\.audio\.effect\.service-aidl\.legacy			u:object_r:hal_audio_default_exec:s0

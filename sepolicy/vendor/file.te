@@ -10,3 +10,6 @@ type vendor_firmware_file, file_type, vendor_file_type;
 
 # State of the mainline audio HAL, see its IControl.
 type mainline_audio_data_file, file_type, data_file_type;
+
+# Values the user set for the virtual sensors of the mainline sensors HAL.
+type mainline_sensors_data_file, file_type, data_file_type;

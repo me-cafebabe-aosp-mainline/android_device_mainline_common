@@ -1,0 +1,8 @@
+#
+# SPDX-FileCopyrightText: The LineageOS Project
+# SPDX-License-Identifier: Apache-2.0
+#
+
+# vendor.mainline.audio.IControl/default, served by the mainline audio HAL for
+# its settings app.
+type hal_mainline_audio_control_service, hal_service_type, service_manager_type;

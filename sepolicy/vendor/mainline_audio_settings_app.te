@@ -1,0 +1,17 @@
+#
+# SPDX-FileCopyrightText: The LineageOS Project
+# SPDX-License-Identifier: Apache-2.0
+#
+
+# Settings app of the mainline audio HAL (vendor.mainline.audio.settings), an
+# APK in the HAL's vendor APEX.
+type mainline_audio_settings_app, domain;
+app_domain(mainline_audio_settings_app)
+
+# AudioManager: AudioService, and audio policy queries made in process.
+allow mainline_audio_settings_app app_api_service:service_manager find;
+allow mainline_audio_settings_app audioserver_service:service_manager find;
+
+# IControl of the audio HAL.
+allow mainline_audio_settings_app hal_mainline_audio_control_service:service_manager find;
+binder_call(mainline_audio_settings_app, hal_audio_default)

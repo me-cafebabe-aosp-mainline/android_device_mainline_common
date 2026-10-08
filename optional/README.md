@@ -267,6 +267,12 @@
 | iio | sensors-hal_iio | Support sensors that exposes IIO interface. |
 | mainline | sensors-hal_mainline | Sensors HAL that exactly matches with mainline kernel usecase by design. Multiple backends are supported, and more backends can be added later. |
 
+### TARGET_SENSORS_HAL_MAINLINE_VIRTUAL_BACKEND
+| Value | Description |
+|-------|-------------|
+| false | Default value |
+| true | For `TARGET_SENSORS_HAL=mainline`, bundle the virtual backend, whose sensor values the user sets in Settings › System › Virtual sensors, and add it to the default backend list. Check out `hardware/mainline/common/interfaces/sensors/mainline/backends/virtual/README.md` for details. |
+
 ## Thermal
 
 ### TARGET_THERMAL_HAL

@@ -34,6 +34,9 @@ More techniques: `device/mainline/generic/docs/debugging.md`.
 | No audio | UCM profile or card not found | `TARGET_AUDIO_MAINLINE_UCM_PROFILES`, HAL README |
 | No touch | Driver, or name mismatch | `getevent -lp`, `ts_vkeys` docs |
 
+Kernel crashes before any log, and config problems on a new device, are
+also covered in the [bringup tips](KERNEL_CHOICE.md#bringup-tips-for-any-kernel).
+
 ## Logs to collect before asking for help
 
 - [ ] Full kernel log (`dmesg` or serial)

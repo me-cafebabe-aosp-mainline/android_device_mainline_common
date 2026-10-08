@@ -24,6 +24,10 @@ everything specific to that vendor's SoCs. More of them may appear.
   documented **there**, not in this guide.
 - Currently available: `qcom-common`.
 
+`generic` targets are not tied to an ACK, so the
+[kernel recommendation](KERNEL_CHOICE.md) for shipping devices does not
+apply to them.
+
 ## How generic boots
 
 `generic` is not tied to one boot method. Any way that boots the

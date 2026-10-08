@@ -22,6 +22,7 @@ checklists. If a page grows past a screen or two, it should be split.
 | [FIRST_BOOT_QUICKSTART.md](FIRST_BOOT_QUICKSTART.md) | Boot something quickly, on x86_64 PC |
 | [DEVICE_TREE_SKELETON.md](DEVICE_TREE_SKELETON.md) | Create the files of a new device tree |
 | [KERNEL.md](KERNEL.md) | Set up the kernel build |
+| [KERNEL_CHOICE.md](KERNEL_CHOICE.md) | Decide between an ACK branch and pristine mainline |
 | [KERNEL_PATCHES.md](KERNEL_PATCHES.md) | Find the patches pristine kernels need |
 | [BOOT_AND_PARTITIONS.md](BOOT_AND_PARTITIONS.md) | Handle bootloader, partitions, fstab |
 | [CHOOSING_OPTIONAL_MODULES.md](CHOOSING_OPTIONAL_MODULES.md) | Pick HALs and other options |

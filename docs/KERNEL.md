@@ -14,6 +14,10 @@ defconfig plus the Android fragments, and your own fixups last.
 
 Set it with `TARGET_KERNEL_SOURCE := kernel/...`.
 
+For a device you want to ship, we recommend the ACK branch of the
+Android release you target. The reasons and the trade-offs are in
+[KERNEL_CHOICE.md](KERNEL_CHOICE.md).
+
 ## Pick a config approach
 
 | Approach | When | `TARGET_KERNEL_CONFIG` | `TARGET_KERNEL_CONFIG_EXT` |

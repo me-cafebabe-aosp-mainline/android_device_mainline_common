@@ -10,6 +10,12 @@ PRODUCT_PACKAGES += \
     com.android.hardware.audio.mainline \
     framework_compatibility_matrix.mainline.audio.xml
 
+# TvSettings has no Settings tiles: its Display & sound slot leads to the
+# settings app instead.
+ifeq ($(PRODUCT_IS_ATV),true)
+PRODUCT_PACKAGES += MainlineAudioTvSettingsOverlay
+endif
+
 TARGET_AUDIO_MAINLINE_UCM_PROFILES ?= all
 ifeq ($(TARGET_AUDIO_MAINLINE_UCM_PROFILES),all)
 PRODUCT_PACKAGES += alsa-ucm-conf-all

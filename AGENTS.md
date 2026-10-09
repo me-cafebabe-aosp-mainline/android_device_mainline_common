@@ -31,6 +31,8 @@ keep working without LineageOS and without the `-ext` repositories.
   `BoardConfigMainlineCommon.mk`; keep them in sync with
   `docs/BRINGUP_OVERVIEW.md`.
 - Makefile sections are commented (`# Name`) and sorted alphabetically.
+  Section names are short noun phrases, see
+  `hardware/mainline/common/docs/CODE_STYLE.md` ("Section names").
 - Every new source file starts with the SPDX header.
 
 ## Layout

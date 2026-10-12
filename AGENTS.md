@@ -20,7 +20,8 @@ keep working without LineageOS and without the `-ext` repositories.
 
 ## Hard rules
 
-- Do not build, flash or run tests. The human does and reports back.
+- No Android build, flashing or test without asking the human first
+  (`hardware/mainline/common/docs/WORKFLOW.md`).
 - Do not search from the AOSP tree root. Use precise directories.
 - Do not make this tree depend on `device/mainline/common-ext`.
 - Do not hardcode per-device values here. A device belongs in its own

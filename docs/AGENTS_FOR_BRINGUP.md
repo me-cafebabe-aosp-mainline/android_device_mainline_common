@@ -1,7 +1,8 @@
 # AI agents and bringup
 
-**TL;DR:** An agent can write the tree and docs. It cannot build,
-flash or guess. The human builds, tests and reports back.
+**TL;DR:** An agent can write the tree and docs. It does not guess,
+and does not build, flash or test without asking. Usually the human
+builds, tests and reports back.
 
 Applies in addition to `hardware/mainline/common/docs/WORKFLOW.md`
 and `SCOPE.md`. Those win if they differ.
@@ -13,7 +14,7 @@ and `SCOPE.md`. Those win if they differ.
 | Read this guide and the nearest `AGENTS.md` first | Search from the AOSP tree root |
 | Look at reference trees and HALs in the manifests | Browse outside the AOSP tree |
 | Present a plan and wait for a "yes" | Create files before the plan is confirmed |
-| Ask for logs when something fails | Build, flash, or run tests |
+| Ask for logs when something fails | Build, flash, or run tests without asking (`WORKFLOW.md`) |
 | Mark unknown facts `TODO(maintainer)` | Invent hardware values |
 | Read values from DT, sysfs, props or config files | Hardcode per-device values that can be detected |
 
@@ -41,7 +42,7 @@ Always use a precise directory and specific search terms.
    names (`mainline` suffix, see [DEVICE_TREE_SKELETON.md](DEVICE_TREE_SKELETON.md)).
 3. Write a plan (below) and get it confirmed.
 4. Create the skeleton: [DEVICE_TREE_SKELETON.md](DEVICE_TREE_SKELETON.md).
-5. Stop. The human builds and boots.
+5. Stop. The human builds and boots, or says how you may.
 6. Work from the human's logs, **one stage at a time**:
    [BRINGUP_OVERVIEW.md](BRINGUP_OVERVIEW.md).
 7. Commit each stage: [CONTRIBUTING.md](CONTRIBUTING.md).

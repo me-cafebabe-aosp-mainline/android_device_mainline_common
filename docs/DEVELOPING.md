@@ -57,7 +57,7 @@ before you backport.
 ## The change loop
 
 ```
-read docs -> edit -> format -> commit -> human builds and tests
+read docs -> edit -> format -> commit -> build and test (WORKFLOW.md)
                                            |
          merge <- approval <- review <- push / pull request
 ```
@@ -70,7 +70,7 @@ read docs -> edit -> format -> commit -> human builds and tests
 | Format | Run the formatter on touched files (`clang-format`, `rustfmt`) |
 | Commit | One logical change, subject and trailers per `COMMIT_CONVENTIONS.md` |
 | Self review | Go through `REVIEW.md` against your own diff |
-| Test | The human builds and runs it on hardware. Agents must not |
+| Test | The human builds and runs it on hardware. Agents only after asking (`WORKFLOW.md`) |
 | Push | To your own branch or fork on GitHub: `git push <remote> <branch>` |
 | Review | Open a pull request. A maintainer reviews it against `REVIEW.md` |
 | Merge | When the review is clean and the change is tested |

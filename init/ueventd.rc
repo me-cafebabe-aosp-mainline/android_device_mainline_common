@@ -1,6 +1,10 @@
 import /vendor/etc/ueventd.${ro.board.platform}.rc
 import /vendor/etc/ueventd.${ro.hardware}.rc
 
+# Audio
+/sys/class/sound/hwC*D*	reconfig		0220	root	audio
+/sys/class/sound/hwC*D*	user_pin_configs	0660	root	audio
+
 # DMA heaps
 /dev/dma_heap/system	0666	system	graphics
 

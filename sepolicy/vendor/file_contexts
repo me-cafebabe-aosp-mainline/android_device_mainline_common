@@ -1,3 +1,7 @@
+# Audio
+/sys/devices/.*/sound/card[0-9]+/hwC[0-9]+D[0-9]+/(init|driver|user)_pin_configs	u:object_r:vendor_sysfs_sound:s0
+/sys/devices/.*/sound/card[0-9]+/hwC[0-9]+D[0-9]+/reconfig				u:object_r:vendor_sysfs_sound:s0
+
 # Block devices
 /dev/block/sd[a-z][0-9]*	u:object_r:sd_device:s0
 /dev/block/zram0		u:object_r:swap_block_device:s0

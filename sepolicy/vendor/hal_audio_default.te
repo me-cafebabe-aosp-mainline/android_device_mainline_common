@@ -1,6 +1,8 @@
 get_prop(hal_audio_default, vendor_audio_prop)
 r_dir_file(hal_audio_default, vendor_sysfs_dmi_id)
 
+allow hal_audio_default vendor_sysfs_sound:file rw_file_perms;
+
 # vendor.mainline.audio.IControl/default of the mainline audio HAL.
 add_service(hal_audio_default, hal_mainline_audio_control_service)
 

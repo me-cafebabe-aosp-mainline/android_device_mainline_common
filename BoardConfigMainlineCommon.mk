@@ -17,8 +17,7 @@ MAINLINE_COMMON_KERNEL_PARAMS := \
     log_buf_len=4M \
     loop.max_part=7 \
     printk.devkmsg=on \
-    rw \
-    vt.global_cursor_default=0
+    rw
 
 ifeq ($(TARGET_INITIAL_BRINGUP),true)
 MAINLINE_COMMON_ANDROIDBOOT_PARAMS += \

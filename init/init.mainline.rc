@@ -5,6 +5,10 @@
 
 import /vendor/etc/init/hw/init.mainline.usb.rc
 
+# Console
+on property:sys.bootstat.first_boot_completed=1 && property:ro.boot.console=tty0
+    stop console
+
 # Wi-Fi
 on early-boot
     mkdir /data/vendor/wifi 0770 wifi wifi

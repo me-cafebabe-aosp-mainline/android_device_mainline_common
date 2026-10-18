@@ -11,7 +11,7 @@ vendor.recovery.ethernet.dhcp.iface		u:object_r:vendor_recovery_ethernet_dhcp_pr
 vendor.dlkm.modules.ready			u:object_r:vendor_dlkm_prop:s0 exact bool
 
 # Graphics (drm_hwc)
-vendor.hwc.drm.device		u:object_r:vendor_hwc_drm_prop:s0 exact string
+vendor.hwc.drm.			u:object_r:vendor_hwc_drm_prop:s0
 
 # Graphics (Mesa)
 vendor.drm.gpu.vendor_name	u:object_r:vendor_mesa_prop:s0

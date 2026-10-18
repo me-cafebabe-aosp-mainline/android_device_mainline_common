@@ -206,6 +206,11 @@
 |-------|-----------|-------------|
 | true | logcat-to-serial | Enable support for printing logcat messages over serial console. Specify the serial console device to use via property `ro.boot.seriallogging` or property `ro.vendor.seriallogging` or boot parameter `androidboot.seriallogging`. |
 
+### TARGET_ENABLE_SELOGGER
+| Value | Directory | Description |
+|-------|-----------|-------------|
+| true | selogger | Collects SELinux denials on the device and turns them into sepolicy for the device tree. Installed on userdebug and eng builds only. Requires `tools/selogger`; see its `README.md`. |
+
 ## Media
 
 ### TARGET_MEDIA_C2_HAL

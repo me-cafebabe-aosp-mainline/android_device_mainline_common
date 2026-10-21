@@ -2,7 +2,10 @@ hal_client_domain(hal_graphics_composer_default, hal_graphics_allocator)
 
 allow hal_graphics_composer_default hal_graphics_allocator_default_tmpfs:file write;
 allow hal_graphics_composer_default self:netlink_kobject_uevent_socket { bind create read };
+allow hal_graphics_composer_default vendor_sysfs_backlight:file rw_file_perms;
 
 get_prop(hal_graphics_composer_default, vendor_hwc_drm_prop)
 
 gpu_access(hal_graphics_composer_default)
+
+r_dir_file(hal_graphics_composer_default, vendor_sysfs_backlight)

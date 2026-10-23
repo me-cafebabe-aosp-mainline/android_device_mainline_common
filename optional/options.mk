@@ -126,7 +126,7 @@ TARGET_SENSORS_HAL ?= mainline
 
 # USB
 ifneq ($(TARGET_SUPPORTS_USB_ACCESSORY_MODE),false)
-TARGET_USB_GADGET_HAL ?= mainline
+TARGET_USB_GADGET_HAL ?= $(if $(filter true,$(TARGET_ENABLE_EARLY_ADBD)),,mainline)
 TARGET_USB_HAL ?= lineage-basic
 TARGET_USB_INIT_SCRIPT ?= mainline
 endif

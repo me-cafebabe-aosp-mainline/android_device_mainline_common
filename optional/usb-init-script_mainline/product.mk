@@ -9,4 +9,6 @@ PRODUCT_PACKAGES += \
     init.mainline.usb.rc \
     init.recovery.mainline.usb.rc
 
+PRODUCT_VENDOR_PROPERTIES += vendor.usb.configfs?=$(if $(TARGET_USB_GADGET_HAL),2,1)
+
 endif # TARGET_USB_INIT_SCRIPT

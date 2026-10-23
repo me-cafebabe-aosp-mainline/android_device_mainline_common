@@ -12,6 +12,7 @@ include $(MAINLINE_COMMON_PATH)/optional/*/board.mk
 MAINLINE_COMMON_ANDROIDBOOT_PARAMS := \
     androidboot.init_fatal_reboot_target=recovery
 MAINLINE_COMMON_KERNEL_PARAMS := \
+    binder.devices=binder,hwbinder,vndbinder \
     binder.impl=rust \
     firmware_class.path=/vendor/firmware/ \
     log_buf_len=4M \

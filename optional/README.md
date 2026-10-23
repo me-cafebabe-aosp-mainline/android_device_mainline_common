@@ -226,6 +226,11 @@
 |-------|-----------|-------------|
 | true | console-as-root | Runs the `console` service as root user, in `u:r:su:0` SELinux domain. Useful for debugging via console. |
 
+### TARGET_ENABLE_EARLY_ADBD
+| Value | Directory | Description |
+|-------|-----------|-------------|
+| true | early_adbd | Starts adbd as soon as possible during boot process. |
+
 ### TARGET_ENABLE_FBKEYBOARD
 | Value | Directory | Description |
 |-------|-----------|-------------|

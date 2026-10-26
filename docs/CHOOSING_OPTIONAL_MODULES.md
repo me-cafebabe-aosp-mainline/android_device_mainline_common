@@ -89,7 +89,7 @@ path, for devices that only have a framebuffer.
 | Audio | `TARGET_AUDIO_HAL` | `mainline` | Keep it, even with no sound card yet; it needs no audio policy file. Avoid `tinyhal`: it is old and needs per-device config in its own format |
 | Audio UCM | `TARGET_AUDIO_MAINLINE_UCM_PROFILES` | `all` | Keep the image small: list your card(s) |
 | Sensors | `TARGET_SENSORS_HAL` | `mainline` | Do not use `iio`; the mainline HAL replaces it and reads IIO itself |
-| USB gadget | `TARGET_USB_GADGET_HAL` | `mainline` | |
+| USB gadget | `TARGET_USB_GADGET_HAL` | `mainline`, but none with `TARGET_ENABLE_EARLY_ADBD` | Early adbd needs the init trigger based gadget control (`sys.usb.configfs=1`), where the HAL is not used |
 | Vibrator | `TARGET_VIBRATOR_HAL` | `mainline` | No vibrator: `TARGET_HAS_VIBRATOR := false` |
 | Light | `TARGET_LIGHT_HAL` | `lineage` | |
 | Camera | `TARGET_CAMERA_PROVIDER_HAL` | not set | Set `mainline` (it handles external cameras itself, so do not combine it with `TARGET_EXTERNAL_CAMERA_PROVIDER_HAL`). `libcamera` only if the target explicitly needs something only libcamera supports. `emulated` to test |
@@ -100,7 +100,8 @@ path, for devices that only have a framebuffer.
 
 | Stage | Pick | Why |
 |-------|------|-----|
-| 4 Shell | `TARGET_INITIAL_BRINGUP := true` | Console-as-root, fbkeyboard, generic graphics |
+| 4 Shell | `TARGET_INITIAL_BRINGUP := true` | Console-as-root, early adbd, fbkeyboard, generic graphics |
+| 7 SELinux | `TARGET_ENABLE_SELOGGER := true` | Collects denials and writes sepolicy; see [SEPOLICY.md](SEPOLICY.md#collect-with-selogger) |
 | 5 Display | Keep the bringup column above | Works without GPU drivers |
 | 5 Display, GPU works | `mesa` + `drm_hwcomposer` | Mature path |
 | 6 Audio | `mainline` HAL | Configuration-less; set UCM profiles only to slim the image |

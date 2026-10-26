@@ -14,11 +14,49 @@ boot permissive -> use the device -> collect avc -> fix policy -> repeat
 | Step | How |
 |------|-----|
 | Permissive | `androidboot.selinux=permissive` (set by `TARGET_INITIAL_BRINGUP`) |
-| Collect | `adb shell dmesg \| grep avc` and `adb logcat -b all \| grep avc` |
+| Collect | [`selogger`](#collect-with-selogger), or `adb shell dmesg \| grep avc` and `adb logcat -b all \| grep avc` |
 | Cover | Boot, adb, display, audio, camera, USB, Wi-Fi, sleep and wake, recovery |
 | Enforce | Remove the permissive parameters, test again |
 
 Collect **every** denial of a session, not only the first one.
+
+## Collect with selogger
+
+**TL;DR:** set `TARGET_ENABLE_SELOGGER := true` and let the device
+collect the denials. It writes sepolicy you review, instead of you
+reading `avc` lines.
+
+`tools/selogger` is a separate repository, and its `README.md` is the
+manual. It must be in the source tree. The option installs the daemon on
+`userdebug` and `eng` builds only, and adds its sepolicy to the vendor
+policy.
+
+| Step | How |
+|------|-----|
+| Collect | Use the device; the daemon keeps each kind of denial once, with counters, across reboots |
+| Dump | `adb shell selogger dump`, then `adb pull /data/local/tmp/selogger-dump` |
+| Read | `REVIEW.md` of the dump first: it lists what needs a decision |
+| Merge | `tools/selogger/scripts/selogger_expand.py --pull --sepolicy-dir <your sepolicy/vendor>` (`--dry-run` first) |
+| Build, repeat | Rebuild, collect again |
+
+What it gives you:
+
+- Rules written with `te_macros` macros, and label proposals
+  (`file_contexts`, `genfs_contexts`, `property_contexts`, ...) for
+  targets that only have a fallback label, so you do not allow
+  everything of `default_prop` or `vendor_file`.
+- Output in the style `check_sepolicy.py` expects.
+
+What it does not do:
+
+- It does not decide. The rules are a starting point, and a denial is as
+  often a missing label or a bug as a missing rule.
+- The kernel drops denials beyond its rate limit (selogger raises it
+  while collecting; `status` shows `kernel_lost`), and an enforcing
+  process usually stops at its first denial. Collect with the domain you
+  work on in `permissive`, then tighten.
+- `dontaudit` rules hide denials, and `neverallow` rules are only known
+  to the build.
 
 ## Where does a rule go?
 
@@ -71,3 +109,4 @@ python3 device/mainline/common/build/tools/check_sepolicy.py <paths>
 - [ ] No avc denial in a full test session
 - [ ] No `permissive` leftovers
 - [ ] `check_sepolicy.py` is clean
+- [ ] `selogger` reports nothing new in a full session (if you use it)

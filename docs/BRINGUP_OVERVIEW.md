@@ -40,6 +40,7 @@ common board file (see
 | Kernel cmdline | `audit=0`, `panic=-1` |
 | Boot config | `androidboot.selinux=permissive`, `androidboot.boot_devices=any` |
 | Console | `TARGET_CONSOLE_AS_ROOT` defaults to `true` |
+| adb | `TARGET_ENABLE_EARLY_ADBD` defaults to `true` (see [Early adbd](DEBUGGING.md#early-adbd)) |
 | Input | `TARGET_ENABLE_FBKEYBOARD` defaults to `true` |
 | Graphics | `TARGET_GRAPHICS` defaults to `swiftshader`, composer to `drmfb-composer` |
 | Health | `TARGET_HEALTH_HAL` defaults to `cuttlefish` |

@@ -209,7 +209,7 @@
 ### TARGET_ENABLE_SELOGGER
 | Value | Directory | Description |
 |-------|-----------|-------------|
-| true | selogger | Collects SELinux denials on the device and turns them into sepolicy for the device tree. Installed on userdebug and eng builds only. Requires `tools/selogger`; see its `README.md`. |
+| true | selogger | Collects SELinux denials on the device and turns them into sepolicy for the device tree. Installed on userdebug and eng builds only. Requires `tools/selogger`; see its `README.md` and `docs/SEPOLICY.md`. |
 
 ## Media
 
@@ -229,7 +229,7 @@
 ### TARGET_ENABLE_EARLY_ADBD
 | Value | Directory | Description |
 |-------|-----------|-------------|
-| true | early_adbd | Starts adbd as soon as possible during boot process. |
+| true | early_adbd | Starts adbd as soon as possible during boot process, by making `com.android.adbd` a bootstrap APEX (`androidboot.apex.early_adbd`, handled by `apexd`). The APEXes are not compressed then, and `TARGET_USB_GADGET_HAL` defaults to none because early adbd needs the init trigger based USB gadget control (`sys.usb.configfs=1`), which does not use the HAL. Default `true` with `TARGET_INITIAL_BRINGUP`. See `docs/DEBUGGING.md`. |
 
 ### TARGET_ENABLE_FBKEYBOARD
 | Value | Directory | Description |

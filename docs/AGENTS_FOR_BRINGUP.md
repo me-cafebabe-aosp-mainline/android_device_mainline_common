@@ -67,6 +67,28 @@ Always use a precise directory and specific search terms.
 - `CLAUDE.md`: only the line `@AGENTS.md`.
 - `README.md`: see [DEVICE_README_TEMPLATE.md](DEVICE_README_TEMPLATE.md).
 
+## Style of the docs
+
+Applies to every page you write or change in this guide, and in the
+device trees. Humans get tired of long text, so make pages easy to scan.
+
+| Topic | Rule |
+|-------|------|
+| Shape | `# Title`, a `**TL;DR:**` of one to three lines, then `##` sections. End a page with a `## Check` list where there is something to check. A page that grows past a screen or two is split |
+| Form | Tables for "situation → what to do" and for lists of options; checklists for steps; short bullets. No long paragraphs. One idea per row |
+| Wording | Plain and present tense. Say what to do. Put paths, variables, properties and commands in backticks, with paths from the tree root |
+| Recommendations | Say it is a recommendation, and give the reason and the cost of each option. Do not turn a discussion into a rule |
+| Facts | Check each one in the code, the makefiles or AOSP before you write it. Unknown: `TODO(maintainer)`, never a guess. No hardware values, and no specs recited from memory |
+| One owner | Each fact lives in one page. Other pages link to it instead of repeating it |
+| Neutral | This tree is SoC-vendor neutral: vendor specifics go to the docs of the `<SoC vendor>-common` tree and are linked from here. Do not put names of people or chat quotes in docs, nor lists of "patterns seen in history" |
+| Links | Relative links inside one repository (check the anchors). To another repository write the path in backticks |
+| Examples | Point to a reference tree instead of pasting a long file. Keep a snippet short, and take it from a tree that builds |
+| Staying right | When you change an option or a default, update `optional/README.md` and every page that states it (`grep` for the variable). When the maintainer corrects a fact, fix it everywhere it appears, not only where it was noticed |
+
+Commit docs as in [CONTRIBUTING.md](CONTRIBUTING.md). The subject starts
+with the repository prefix and `docs:`, like
+`mainline/common: docs: Add KERNEL_CHOICE.md`.
+
 ## Stop and ask when
 
 - A value depends on hardware you cannot read (boot device path,

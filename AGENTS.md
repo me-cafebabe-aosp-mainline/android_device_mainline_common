@@ -14,6 +14,7 @@ keep working without LineageOS and without the `-ext` repositories.
 |------|------|
 | Bring up a new device | `docs/README.md`, then `docs/AGENTS_FOR_BRINGUP.md` |
 | How changes flow (branches, review, checks) | `docs/DEVELOPING.md` |
+| Write or change docs | `docs/AGENTS_FOR_BRINGUP.md`, section "Style of the docs" |
 | Change an optional module | `optional/README.md`, `optional/_template.mk` |
 | Commit | `hardware/mainline/common/docs/COMMIT_CONVENTIONS.md` |
 | Style, review, scope, workflow | `hardware/mainline/common/docs/` |

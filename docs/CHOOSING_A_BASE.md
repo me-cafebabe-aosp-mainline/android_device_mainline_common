@@ -46,6 +46,10 @@ kernel works, as long as the hardware is reachable through drivers.
 | `mainline/<vendor>-common` | The above plus the vendor layer | See its docs |
 | `mainline/generic` | Partition detection (`generic_init`) and hardware detection (`hardware_detect`) at boot | Usually nothing, only a kernel config |
 
+Any of the other bases can also use `generic_init` when its partitions
+can not be described in advance; see
+[First stage init](BOOT_AND_PARTITIONS.md#4-first-stage-init-aosp-or-generic_init).
+
 ## Per-device vs generic: how to pick
 
 - Fixed hardware, one board: **per-device tree**. Everything is known at

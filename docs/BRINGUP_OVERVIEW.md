@@ -22,7 +22,7 @@ parts that only work on GNU/Linux.
 |---|-------|---------------|------|
 | 1 | Skeleton | `lunch` works, `m` finishes | [Skeleton](DEVICE_TREE_SKELETON.md) |
 | 2 | Kernel boots | Kernel log is visible (serial or screen) | [Kernel](KERNEL.md), [Kernel choice](KERNEL_CHOICE.md), [Boot](BOOT_AND_PARTITIONS.md) |
-| 3 | init runs | First-stage init mounts `/system` and `/vendor` | [Boot](BOOT_AND_PARTITIONS.md) |
+| 3 | init runs | First-stage init mounts `/system` and `/vendor` | [Boot](BOOT_AND_PARTITIONS.md), [AOSP init or `generic_init`](BOOT_AND_PARTITIONS.md#4-first-stage-init-aosp-or-generic_init) |
 | 4 | Shell + adb | `adb shell` works, or serial console as root | [Debugging](DEBUGGING.md) |
 | 5 | Display | Boot animation shows | [Optional modules](CHOOSING_OPTIONAL_MODULES.md) |
 | 6 | Hardware | Touch, audio, Wi-Fi, ... (one by one) | [Optional modules](CHOOSING_OPTIONAL_MODULES.md) |

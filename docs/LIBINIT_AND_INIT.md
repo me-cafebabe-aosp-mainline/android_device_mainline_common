@@ -122,6 +122,7 @@ device. That breaks Project Treble rules and makes GSIs unbootable.
 | `.rc` syntax | `system/core/init/README.md` |
 | `ueventd.rc` syntax | `system/core/init/README.ueventd.md` |
 | Platform `.rc` files | `system/core/rootdir/` |
+| When to use `generic_init` | [BOOT_AND_PARTITIONS.md](BOOT_AND_PARTITIONS.md#4-first-stage-init-aosp-or-generic_init) |
 | Boot parameters of `generic_init` | `device/mainline/generic/docs/boot-parameters.md` |
 
 ## Check

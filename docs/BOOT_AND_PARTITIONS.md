@@ -95,7 +95,40 @@ device in your SoC vendor tree.
 A/B: see `AB_OTA_UPDATER` and `TARGET_USES_MAINLINE_COMMON_AB_DEFS`
 in `optional/README.md`. Boot control HALs differ per bootloader.
 
-## 4. fstab
+## 4. First stage init: AOSP or generic_init
+
+**TL;DR:** keep AOSP's first stage init unless the partitions cannot be
+described in advance. Then use `generic_init`.
+
+AOSP first stage init reads a fixed fstab: the block devices and their
+names are known when you build. `generic_init` replaces it, discovers
+the block devices as they appear and builds the fstab at boot (see
+`vendor/mainline/services/generic_init/docs/README.md`).
+
+| Situation | First stage |
+|-----------|-------------|
+| Dedicated partitions with known names and one fstab: `basic_x86_64_pc`, a typical phone layout | AOSP init (the default) |
+| Neither the hardware nor the disk content is known at build time: one image for many machines, installed on any disk or booted from an ISO | `generic_init` (`device/mainline/generic`) |
+| The partition table can not or should not change, so the Android files are a directory of images on an existing partition (for example next to another OS) | `generic_init` (`device/samsung/ss8916`) |
+| An unusual partition layout, or files that must be generated during boot, such as firmware | `generic_init` (`device/apple/snowcastle`) |
+| The system as image files, with overlays or a `tmpfs` userdata | `generic_init` |
+
+Things to know before choosing it:
+
+- It is a fork of AOSP init, so the ramdisk carries more: modules and
+  firmware for the storage, a ueventd config and the addon fstabs. Do
+  not pick it only to get its debugging aids.
+- It needs `rdinit=/system/bin/generic_init` and the `androidboot.*`
+  parameters that say where Android lives, like `androidboot.mount_system`
+  and `androidboot.android_dir`. They go in the command line (or the
+  bootconfig) like the parameters above.
+- What to add to the device tree is in
+  `vendor/mainline/services/generic_init/docs/BUILDING.md`. The rest of
+  `vendor/mainline/services/generic_init/docs/` explains how it works.
+- Entries it does not generate, such as extra partitions and firmware,
+  still come from the fstab or an addon fstab (see the next section).
+
+## 5. fstab
 
 init looks for `fstab.<androidboot.hardware>` in `/odm/etc/`,
 `/vendor/etc/`, and the first-stage ramdisk
@@ -120,7 +153,7 @@ Install the fstab twice if first-stage init needs it: normal and
 `.ramdisk` variant (see `fstab.basic_x86_64_pc.ramdisk`).
 Recovery uses `TARGET_RECOVERY_FSTAB`.
 
-## 5. Firmware
+## 6. Firmware
 
 | What | How |
 |------|-----|
@@ -133,7 +166,7 @@ Recovery uses `TARGET_RECOVERY_FSTAB`.
 
 Do not ship firmware you may not redistribute.
 
-## 6. Before first flash
+## 7. Before first flash
 
 - [ ] Backup of the original partitions
 - [ ] Know how to get back (stock flash, fastboot, serial)

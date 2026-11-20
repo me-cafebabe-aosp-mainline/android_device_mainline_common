@@ -30,6 +30,16 @@ import /vendor/etc/ueventd.${ro.hardware}.rc
 /dev/v4l-subdev*	0660	media	camera
 /dev/video*		0660	media	camera
 
+# Parallel restorecon
+parallel_restorecon enabled
+parallel_restorecon_dir /sys
+parallel_restorecon_dir /sys/devices
+parallel_restorecon_dir /sys/devices/platform
+parallel_restorecon_dir /sys/devices/virtual
+parallel_restorecon_dir /sys/devices/virtual/block
+parallel_restorecon_dir /sys/kernel
+parallel_restorecon_dir /sys/module
+
 # Rfkill
 /dev/rfkill			0660	bluetooth	bluetooth
 /sys/class/rfkill/rfkill* state	0664	bluetooth	net_bt
